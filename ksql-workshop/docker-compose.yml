@@ -110,7 +110,7 @@ services:
      - MYSQL_USER=mysqluser
      - MYSQL_PASSWORD=mysqlpw
     volumes:
-     - ./data/customers.sql:/docker-entrypoint-initdb.d/z99_dump.sql
+     - ${PWD}/data/customers.sql:/docker-entrypoint-initdb.d/z99_dump.sql
 
   connect-debezium:
     image: debezium/connect:0.8
@@ -131,7 +131,7 @@ services:
       CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
       CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
     volumes:
-     - $PWD/scripts:/scripts
+     - ${PWD}/scripts:/scripts
      
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.3.0
@@ -141,7 +141,7 @@ services:
       xpack.security.enabled: "false"
       ES_JAVA_OPTS: "-Xms1g -Xmx1g"
     volumes:
-     - $PWD/scripts:/scripts
+     - ${PWD}/scripts:/scripts
 
   kibana:
     image: docker.elastic.co/kibana/kibana:6.3.0

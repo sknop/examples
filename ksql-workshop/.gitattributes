@@ -1,0 +1,5 @@
+# default behaviour
+* text=auto
+# Bash shell scripts need just LF
+*.sh text eol=lf
+
