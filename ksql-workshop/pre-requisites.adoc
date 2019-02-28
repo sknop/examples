@@ -4,7 +4,7 @@ v1.00, September 4, 2018
 
 [NOTE]
 ====
-Successfully tested on: 
+Successfully tested on:
 
 [options="header"]
 |=================================================================================
@@ -15,7 +15,7 @@ Successfully tested on:
 
 ====
 
-IMPORTANT: NOT VALIDATED ON DOCKER ON WINDOWS. 
+IMPORTANT: NOT VALIDATED ON DOCKER ON WINDOWS.
 
 * Docker
 * Docker Compose
@@ -33,14 +33,14 @@ IMPORTANT: *THIS MUST BE DONE _BEFORE_ THE WORKSHOP - The docker images are larg
 +
 In Docker’s advanced settings, increase the memory dedicated to Docker to at least 8GB.
 
-1. Confirm that Docker has at least 8GB of memory available to it: 
+1. Confirm that Docker has at least 8GB of memory available to it:
 +
 [source,bash]
 ----
-docker system info | grep Memory 
+docker system info | grep Memory
 ----
 +
-Should return a value greater than 8GB - if not, the Kafka stack will probably not work. 
+Should return a value greater than 8GB - if not, the Kafka stack will probably not work.
 
 1. Clone the workshop repo to your local machine:
 +
@@ -64,11 +64,11 @@ docker-compose pull
 * Mac: `brew install jq`
 * RHEL-based: `sudo yum install -y jq`
 * Debian-based: `sudo apt install -y jq`
-* Windows: `¯\_(ツ)_/¯` -> send me a PR for these instructions on how to do it :)
+* Windows: Install chocolately (chocolately.org/docs/installation), then install jq: `choco install jq`
 
 4. Linux only:
-+ 
-If you want to use the Elasticsearch part of the workshop then make sure the virtual memory mmap count limit is set appropriately. 
++
+If you want to use the Elasticsearch part of the workshop then make sure the virtual memory mmap count limit is set appropriately.
 +
 [source,bash]
 ----
