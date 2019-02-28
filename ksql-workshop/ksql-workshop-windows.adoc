@@ -102,11 +102,11 @@ Here we use https://github.com/edenhill/kafkacat/[`kafkacat` ] for showing the K
 
 [source,bash]
 ----
-docker run --network ksql-workshop_default \`
-          --tty --interactive --rm \`
-          confluentinc/cp-kafkacat \`
-          kafkacat -b kafka:29092 -C -K: \`
-          -f '\nKey (%K bytes): %k\t\nValue (%S bytes): %s\n\Partition: %p\tOffset: %o\n--\n' \`
+docker run --network ksql-workshop_default +`+
+          --tty --interactive --rm +`+
+          confluentinc/cp-kafkacat +`+
+          kafkacat -b kafka:29092 -C -K: +`+
+          -f '\nKey (%K bytes): %k\t\nValue (%S bytes): %s\n\Partition: %p\tOffset: %o\n--\n' +`+
           -t ratings
 ----
 
@@ -176,9 +176,9 @@ Now in a separate terminal window run the following, to stream the contents of t
 [source,bash]
 ----
 # Make sure you run this from the `examples/ksql-workshop` folder
-docker-compose exec -T kafka \`
-      kafka-console-consumer \`
-      --bootstrap-server kafka:29092 \`
+docker-compose exec -T kafka +`+
+      kafka-console-consumer +`+
+      --bootstrap-server kafka:29092 +`+
       --topic asgard.demo.CUSTOMERS-raw --from-beginning | jq '.'
 ----
 
@@ -204,11 +204,11 @@ Run the following command to send the customer data to the `customers` topic:
 
 [source,bash]
 ----
-docker run --network ksql-workshop_default \`
-           --interactive --rm \`
-           --volume $PWD/data:/data confluentinc/cp-kafkacat \`
-           kafkacat -b kafka:29092 \`
-                    -t asgard.demo.CUSTOMERS \`
+docker run --network ksql-workshop_default +`+
+           --interactive --rm +`+
+           --volume $PWD/data:/data confluentinc/cp-kafkacat +`+
+           kafkacat -b kafka:29092 +`+
+                    -t asgard.demo.CUSTOMERS +`+
                     -P -l /data/customers.json
 ----
 
@@ -220,11 +220,11 @@ Run this command to inspect the content of the main `asgard.demo.CUSTOMERS` topi
 
 [source,bash]
 ----
-docker run --network ksql-workshop_default \`
-          --tty --interactive --rm \`
-          confluentinc/cp-kafkacat \`
-          kafkacat -b kafka:29092 -C -K: \`
-          -f '\nKey (%K bytes): %k\t\nValue (%S bytes): %s\n\Partition: %p\tOffset: %o\n--\n' \`
+docker run --network ksql-workshop_default +`+
+          --tty --interactive --rm +`+
+          confluentinc/cp-kafkacat +`+
+          kafkacat -b kafka:29092 -C -K: +`+
+          -f '\nKey (%K bytes): %k\t\nValue (%S bytes): %s\n\Partition: %p\tOffset: %o\n--\n' +`+
           -t asgard.demo.CUSTOMERS
 ----
 
@@ -252,8 +252,8 @@ Launch the CLI:
 
 [source,bash]
 ----
-docker run --network ksql-workshop_default \`
-           --tty --interactive --rm \`
+docker run --network ksql-workshop_default +`+
+           --tty --interactive --rm +`+
            confluentinc/cp-ksql-cli:5.1.2 http://ksql-server:8088
 ----
 
